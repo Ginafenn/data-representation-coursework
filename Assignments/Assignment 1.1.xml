@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <catalogue>
+        <catalogue_name>Technical Books</catalogue_name>
+        <book>
+            <ISBN>12345</ISBN>
+            <title>Databases</title>
+            <author>Jane Ryan</author>
+        </book>
+        <book>
+            <ISBN>23456</ISBN>
+            <title>Data Representation</title>
+            <author>Andrew Beatty</author>
+        </book>
+    </catalogue>
+    <catalogue>
+        <catalogue_name>Cookery Books</catalogue_name>
+        <book>
+            <ISBN>34567</ISBN>
+            <title>Vegetarian</title>
+            <author>Gordon Ramsey</author>
+        </book>
+        <book>
+            <ISBN>56789</ISBN>
+            <title>Easy Meals</title>
+            <author>Jamie Oliver</author>
+        </book>
+    </catalogue>
+</library>
