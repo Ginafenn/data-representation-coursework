@@ -1,13 +1,13 @@
 
 # import libraries
-
 import requests
 import json
-
 from github import Github
 
+
+# Variable for the Key
 config = {
-    'api_key': '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',
+    'api_key': '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',
     'debug_mode': False
 }
 

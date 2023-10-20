@@ -1,41 +1,35 @@
 # import libraries
 import requests
 import json
+import re
 from github import Github
 from config import config as cfg
 
-# Access the GitHub API using your access token
+# Going to the config file to get Key
 apikey = cfg["api_key"]
+
 g = Github(apikey)
 
-# List the names of your repositories
-for repo in g.get_user().get_repos():
-    print(repo.name)
+# Repository detail
+Owner = 'Ginafenn'
+Name = 'Private'
+Path = 'test.txt'
+changeData = 'Regina'
 
 
-#repo = g.get_repo("https://github.com/Ginafenn/Private.git")
-#print(repo.clone_url)
-
-#
+# Go to the repository
+repo = g.get_user(Owner).get_repo(Name)
 
 
+# Retrieving file details
+file_contents = repo.get_contents(Path)
+file_data = file_contents.decoded_content.decode('utf-8')
 
-#user = g.get_user()
+# Everytime you see Andrew replace with Regina
+file_data = re.sub(r'Andrew', Name, file_data)
 
-#repos = user.get_repos()
+# DOing a commit and Push
+repo.update_file(Path, f"Update 'Andrew' to '{changeData}'", file_data, file_contents.sha)
 
-#for repo in repos:
-    #print(repo.name)
-
-#filename = "repos-private.json"
-
-
-#url = 'https://github.com/Ginafenn/Private.git'
-
-#response = requests.get(url, auth = ('token', apikey))
-#print (response.status_code)
-
-
-#with open(filename, "w") as fp:
-    #reppJSON = response.json()
-    #json.dump(reppJSON, fp , indent=4)
+# Printing out Data replaced to show the task has been completed
+print("Data replaced")
