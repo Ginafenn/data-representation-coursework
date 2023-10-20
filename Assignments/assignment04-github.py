@@ -1,20 +1,22 @@
 # import libraries
-
 import requests
 import json
-
 from github import Github
-#from config import config as cfg
+from config import config as cfg
 
-apikey = "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"
-
+# Access the GitHub API using your access token
+apikey = cfg["api_key"]
 g = Github(apikey)
 
+# List the names of your repositories
+for repo in g.get_user().get_repos():
+    print(repo.name)
 
-repo = g.get_repo("https://github.com/Ginafenn/Private.git")
-print(repo.clone_url)
 
+#repo = g.get_repo("https://github.com/Ginafenn/Private.git")
+#print(repo.clone_url)
 
+#
 
 
 
