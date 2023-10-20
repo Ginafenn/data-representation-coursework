@@ -13,23 +13,23 @@ g = Github(apikey)
 # Repository detail
 Owner = 'Ginafenn'
 Name = 'Private'
-Path = 'test.txt'
+Path = 'Names.txt'
 changeData = 'Regina'
 
 
-# Go to the repository
+
 repo = g.get_user(Owner).get_repo(Name)
 
 
 # Retrieving file details
-file_contents = repo.get_contents(Path)
-file_data = file_contents.decoded_content.decode('utf-8')
+contents = repo.get_contents(Path)
+data = contents.decoded_content.decode('utf-8')
 
 # Everytime you see Andrew replace with Regina
-file_data = re.sub(r'Andrew', Name, file_data)
+data = re.sub(r'Andrew', Name, data)
 
-# DOing a commit and Push
-repo.update_file(Path, f"Update 'Andrew' to '{changeData}'", file_data, file_contents.sha)
+# Doing a commit and Push
+repo.update_file(Path, f"Update 'Andrew' to '{changeData}'", data, contents.sha)
 
-# Printing out Data replaced to show the task has been completed
+# Printing out Data replaced to ensure working
 print("Data replaced")
